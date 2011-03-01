@@ -53,7 +53,7 @@ public class CompassViewActivity extends Activity implements OnClickListener,
 
 		} else if (canSense) {
 			// only show this warning once
-			Toast.makeText(this, "No compass available, so the exits will not be properly angled.", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, R.string.no_compass, Toast.LENGTH_LONG).show();
 			sensorRunning = false;
 			canSense = false;
 		}

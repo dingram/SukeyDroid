@@ -20,5 +20,6 @@
 	<string name="toast_compass">Compass View Loading...</string>
 	<string name="toast_report">Report View Loading...</string>
 	<string name="toast_settings">Edit General settings</string>
-	<string name="toast_about">Information About the Team (;..;)</string>	
+	<string name="toast_about">Information About the Team (;..;)</string>
+	<string name="no_compass">No compass available, so the location of the exits will not change as you turn.</string>
 </resources>
