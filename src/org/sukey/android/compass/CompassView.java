@@ -34,7 +34,7 @@ public class CompassView extends View {
 	protected int mGreenColor = 0xff33cc00;
 	protected int mUnknownColor = 0xff000000;
 
-	protected int mOffset = 0;
+	protected float mAngleOffset = 0;
 
 	protected RectF oval = new RectF();
 
@@ -97,12 +97,12 @@ public class CompassView extends View {
 		mPaintUnknown = initPaint(mUnknownColor);
 	}
 
-	public int getOffset() {
-		return mOffset;
+	public float getAngleOffset() {
+		return mAngleOffset;
 	}
 
-	public void setOffset(int offset) {
-		mOffset = (offset + 360) % 360;
+	public void setAngleOffset(float offset) {
+		mAngleOffset = (offset + 360) % 360;
 		invalidate();
 	}
 
@@ -273,7 +273,7 @@ public class CompassView extends View {
 
 		// draw segments
 		for (Segment seg : mSegments) {
-			canvas.drawArc(oval, seg.getStartAngle(mOffset), seg.getWidth(),
+			canvas.drawArc(oval, seg.getStartAngle(mAngleOffset), seg.getWidth(),
 					true, getSegPaint(seg.getType()));
 		}
 
@@ -282,8 +282,8 @@ public class CompassView extends View {
 	}
 
 	public static class Segment {
-		protected int mAngle;
-		protected int mWidth;
+		protected float mAngle;
+		protected float mWidth;
 		protected int mType;
 
 		public static final int TYPE_OPEN = 1;
@@ -291,29 +291,29 @@ public class CompassView extends View {
 		public static final int TYPE_BLOCKED = 3;
 		public static final int TYPE_UNKNOWN = 0;
 
-		public Segment(int angle, int width, int type) {
+		public Segment(float angle, float width, int type) {
 			mAngle = angle;
 			mWidth = width;
 			mType = type;
 		}
 
-		public int getStartAngle() {
+		public float getStartAngle() {
 			return getStartAngle(0);
 		}
 
-		public int getStartAngle(int offset) {
+		public float getStartAngle(float offset) {
 			return (((mAngle - (mWidth / 2)) + 360 + offset) % 360);
 		}
 
-		public int getAngle() {
+		public float getAngle() {
 			return getAngle(0);
 		}
 
-		public int getAngle(int offset) {
+		public float getAngle(float offset) {
 			return (mAngle + 360 + offset) % 360;
 		}
 
-		public int getWidth() {
+		public float getWidth() {
 			return mWidth;
 		}
 
