@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:sukey="http://schemas.android.com/apk/res/org.sukey.android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent">
+	<org.sukey.android.compass.CompassView
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:id="@+id/compass" android:padding="10dp" />
+</RelativeLayout>

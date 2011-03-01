@@ -49,12 +49,12 @@ public class MenuActivity extends Activity implements OnClickListener {
 			startActivity(intent);
 			Toast.makeText(this, R.string.toast_map, 500).show();
 		}
-		/*
 		if (view == mCompassButton) {
 			Intent intent = new Intent(this, org.sukey.android.compass.CompassViewActivity.class);
 			startActivity(intent);
 			Toast.makeText(this, R.string.toast_compass, 500).show();
 		}
+		/*
 		if (view == mReportButton) {
 			Intent intent = new Intent(this, org.sukey.android.report.ReportViewActivity.class);
 			startActivity(intent);
