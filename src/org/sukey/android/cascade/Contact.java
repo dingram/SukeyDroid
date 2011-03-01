@@ -1,9 +1,11 @@
 package org.sukey.android.cascade;
 
 import android.content.res.Resources;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.provider.ContactsContract;
 
-public final class Contact {
+public final class Contact implements Parcelable {
 	protected String mId;
 	protected int mType;
 	protected String mName;
@@ -21,6 +23,10 @@ public final class Contact {
 		mType = type;
 		mNumber = number;
 		mSelected = selected;
+	}
+
+	public Contact(Parcel in) {
+		readFromParcel(in);
 	}
 
 	public boolean getSelected() {
@@ -76,4 +82,36 @@ public final class Contact {
 				.append("]");
 		return sb.toString();
 	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	protected void readFromParcel(Parcel src) {
+		mId = src.readString();
+		mType = src.readInt();
+		mName = src.readString();
+		mNumber = src.readString();
+		mSelected = src.readInt() == 1;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(mId);
+		dest.writeInt(mType);
+		dest.writeString(mName);
+		dest.writeString(mNumber);
+		dest.writeInt(mSelected ? 1 : 0);
+	}
+
+	public static final Parcelable.Creator<Contact> CREATOR = new Parcelable.Creator<Contact>() {
+		public Contact createFromParcel(Parcel in) {
+			return new Contact(in);
+		}
+
+		public Contact[] newArray(int size) {
+			return new Contact[size];
+		}
+	};
 }
