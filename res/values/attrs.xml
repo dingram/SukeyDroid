@@ -8,5 +8,6 @@
 		<attr name="greenColor" format="color" />
 		<attr name="unknownColor" format="color" />
 		<attr name="ringWidth" format="dimension"/>
+		<attr name="autoPad" format="boolean"/>
 	</declare-styleable>
 </resources>

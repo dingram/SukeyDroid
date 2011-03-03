@@ -17,7 +17,6 @@ import android.view.View;
 public class CompassView extends View {
 	protected final float scale = getContext().getResources()
 			.getDisplayMetrics().density;
-	private final static float DEFAULT_RING_WIDTH_DP = 25.0f;
 
 	protected Paint mPaintBackground;
 	protected Paint mPaintRing;
@@ -25,7 +24,7 @@ public class CompassView extends View {
 	protected Paint mPaintAmber;
 	protected Paint mPaintGreen;
 	protected Paint mPaintUnknown;
-	protected int mRingWidth = (int) (DEFAULT_RING_WIDTH_DP * scale + 0.5f);
+	protected int mRingWidth = -1;
 
 	protected int mBackgroundColor = 0xfff0f0f0;
 	protected int mRingColor = 0xff303030;
@@ -33,6 +32,8 @@ public class CompassView extends View {
 	protected int mAmberColor = 0xffffff33;
 	protected int mGreenColor = 0xff33cc00;
 	protected int mUnknownColor = 0xff000000;
+
+	protected boolean mAutoPad = true;
 
 	protected float mAngleOffset = 0;
 
@@ -64,6 +65,8 @@ public class CompassView extends View {
 
 		mRingWidth = a.getDimensionPixelSize(R.styleable.CompassView_ringWidth,
 				mRingWidth);
+		mAutoPad = a.getBoolean(R.styleable.CompassView_autoPad,
+				mAutoPad);
 
 		initView();
 
@@ -175,6 +178,17 @@ public class CompassView extends View {
 		invalidate();
 	}
 
+	public boolean getAutoPad() {
+		return mAutoPad;
+	}
+
+	public void setAutoPad(boolean autoPad) {
+		mAutoPad = autoPad;
+		if (autoPad) {
+			invalidate();
+		}
+	}
+
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		int measuredWidth = measureWidth(widthMeasureSpec);
@@ -196,6 +210,14 @@ public class CompassView extends View {
 					+ ((float) mRingWidth / 2.0f);
 		}
 		oval = new RectF(offX, offY, size + offX, size + offY);
+
+		if (mRingWidth < 1) {
+			mRingWidth = (int)(0.5f+ (0.075 * size));
+		}
+		if (mAutoPad) {
+			int padding = (int)(0.5f + (0.05 * size));
+			setPadding(padding, padding, padding, padding);
+		}
 	}
 
 	/**
