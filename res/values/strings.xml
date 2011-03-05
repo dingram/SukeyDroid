@@ -15,11 +15,11 @@
 	<string name="prefgrp_notifications">Notifications</string>
 	<string name="pref_confirm_each">Confirm each text</string>
 	<string name="prefsumm_confirm_each">Ask before sending each broadcast</string>
-	<string name="toast_cascade">Edit Cascade Messaging Settings</string>
+	<string name="title_cascade_settings">Edit Cascade Messaging Settings</string>
 	<string name="toast_map">Map View Loading…</string>
 	<string name="toast_compass">Compass View Loading…</string>
 	<string name="toast_report">Report View Loading…</string>
 	<string name="toast_settings">Edit General settings</string>
 	<string name="toast_about">Information About the Team (;..;)</string>
-	<string name="sending_notification">Cascading message to buddy %1$d of %2$d...</string>
+	<string name="notification_cascading_message">Cascading message to buddy %1$d of %2$d...</string>
 </resources>

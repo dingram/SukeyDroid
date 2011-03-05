@@ -10,7 +10,7 @@
 		</activity>
 
 		<activity android:name=".cascade.SettingsActivity"
-			android:label="@string/toast_cascade" />
+			android:label="@string/title_cascade_settings" />
 
 		<activity android:name=".cascade.SelectContactsActivity"
 			android:launchMode="singleTop" android:finishOnTaskLaunch="true"

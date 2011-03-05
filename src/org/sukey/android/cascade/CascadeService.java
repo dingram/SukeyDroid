@@ -34,7 +34,7 @@ public class CascadeService extends Service {
 
 	protected void updateNotification(int cur, int max) {
 		String title = getResources().getString(R.string.app_name);
-		String text = getResources().getString(R.string.sending_notification,
+		String text = getResources().getString(R.string.notification_cascading_message,
 				new Object[] { (Integer) cur, (Integer) max });
 		notification.setLatestEventInfo(getApplicationContext(), title, text,
 				notificationContentIntent);

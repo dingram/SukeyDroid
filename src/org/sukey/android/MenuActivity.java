@@ -41,7 +41,6 @@ public class MenuActivity extends Activity implements OnClickListener {
 		if (view == mCascadeButton) {
 			Intent intent = new Intent(this, org.sukey.android.cascade.SettingsActivity.class);
 			startActivity(intent);
-			Toast.makeText(this, R.string.toast_cascade, 500).show();
 		}
 		
 		if (view == mMapButton) {
