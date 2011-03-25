@@ -5,28 +5,28 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class MenuActivity extends Activity implements OnClickListener {
-	protected ImageButton mCascadeButton;
-	protected ImageButton mMapButton;
-	protected ImageButton mCompassButton;
-	protected ImageButton mReportButton;
-	protected ImageButton mSettingsButton;
-	protected ImageButton mAboutButton;
+	protected Button mCascadeButton;
+	protected Button mMapButton;
+	protected Button mCompassButton;
+	protected Button mReportButton;
+	protected Button mSettingsButton;
+	protected Button mAboutButton;
 	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_menu);
-		mCascadeButton = (ImageButton)findViewById(R.id.cascade);
-		mMapButton = (ImageButton)findViewById(R.id.map);
-		mCompassButton = (ImageButton)findViewById(R.id.compass);
-		mReportButton = (ImageButton)findViewById(R.id.report);
-		mSettingsButton = (ImageButton)findViewById(R.id.settings);
-		mAboutButton = (ImageButton)findViewById(R.id.about);
+		mCascadeButton = (Button)findViewById(R.id.cascade);
+		mMapButton = (Button)findViewById(R.id.map);
+		mCompassButton = (Button)findViewById(R.id.compass);
+		mReportButton = (Button)findViewById(R.id.report);
+		mSettingsButton = (Button)findViewById(R.id.settings);
+		mAboutButton = (Button)findViewById(R.id.about);
 		
 		mCascadeButton.setOnClickListener(this);
 		mMapButton.setOnClickListener(this);
@@ -41,7 +41,6 @@ public class MenuActivity extends Activity implements OnClickListener {
 		if (view == mCascadeButton) {
 			Intent intent = new Intent(this, org.sukey.android.cascade.SettingsActivity.class);
 			startActivity(intent);
-			Toast.makeText(this, R.string.toast_cascade, 500).show();
 		}
 		
 		if (view == mMapButton) {
